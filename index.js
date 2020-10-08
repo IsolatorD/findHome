@@ -1,10 +1,8 @@
-import { Navigation } from "react-native-navigation"
-// import {AppRegistry} from 'react-native'
-import App from './App'
-// import {name as appName} from './app.json'
+import { Navigation } from 'react-native-navigation'
+import {registerScreens} from './router'
 
-// AppRegistry.registerComponent(appName, () => App)
-Navigation.registerComponent('findHome.main', () => App)
+registerScreens()
+
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
@@ -12,10 +10,15 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: 'findHome.main'
+              name: 'findHome.login'
             }
           }
-        ]
+        ],
+        options: {
+          topBar: {
+            visible: false
+          }
+        }
       }
     }
   })
