@@ -11,10 +11,15 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-public class MainApplication extends Application implements ReactApplication {
+import com.reactnativenavigation.NavigationApplication;
+import com.reactnativenavigation.react.NavigationReactNativeHost;
+
+public class MainApplication extends NavigationApplication {
+// public class MainApplication extends Application implements ReactApplication { old
 
   private final ReactNativeHost mReactNativeHost =
-      new ReactNativeHost(this) {
+      new NavigationReactNativeHost(this) {
+      // new ReactNativeHost(this) { old
         @Override
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
@@ -43,7 +48,7 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
-    SoLoader.init(this, /* native exopackage */ false);
+    // SoLoader.init(this, /* native exopackage */ false); old
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
 
